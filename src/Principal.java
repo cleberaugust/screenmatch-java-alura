@@ -1,5 +1,6 @@
-import br.com.alura.screenmatch.Filme;
-import br.com.alura.screenmatch.Serie;
+import br.com.alura.screenmatch.calculo.CalculadoraDeTempo;
+import br.com.alura.screenmatch.modelos.Filme;
+import br.com.alura.screenmatch.modelos.Serie;
 
 public class Principal {
     public static void main(String[] args) {
@@ -8,6 +9,11 @@ public class Principal {
         meuFilme.setAnoDeLancamento(1970);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
+
+        Filme outroFilme = new Filme();
+        outroFilme.setNome("Os outros");
+        outroFilme.setAnoDeLancamento(1998);
+        outroFilme.setDuracaoEmMinutos(200);
 
 
 
@@ -27,6 +33,14 @@ public class Principal {
         lost.setEpisodiosPorTemporadas(10);
         lost.setMinutosPorEpisodios(50);
         System.out.println("Duração para maratonar lost: " + lost.getDuracaoEmMinutos());
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        calculadora.inclui(outroFilme);
+        calculadora.inclui(lost);
+
+        System.out.println(calculadora.getTempoTotal());
+
 
     }
 }
