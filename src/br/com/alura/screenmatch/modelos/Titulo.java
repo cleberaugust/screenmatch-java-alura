@@ -9,6 +9,7 @@ public class Titulo {
     private int duracaoEmMinutos;
 
 
+
     public String getNome() {
         return nome;
     }
