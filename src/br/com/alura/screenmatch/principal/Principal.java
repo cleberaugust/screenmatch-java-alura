@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculo.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculo.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
@@ -8,18 +10,16 @@ import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("Poderoso Chefão");
-        meuFilme.setAnoDeLancamento(1970);
+        Filme meuFilme = new Filme("Poderoso Chefão", 1970);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Os outros");
-        outroFilme.setAnoDeLancamento(1998);
+        Filme outroFilme = new Filme("Os outros", 1998);
         outroFilme.setDuracaoEmMinutos(200);
 
-
+        Filme filmePaulo = new Filme("Dogville", 2003);
+        filmePaulo.setDuracaoEmMinutos(200);
+        filmePaulo.avalia(10);
 
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(5);
@@ -28,10 +28,7 @@ public class Principal {
         System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacao());
         System.out.println(meuFilme.pegaMedia());
 
-        Serie lost = new Serie();
-
-        lost.setNome("Lost");
-        lost.setAnoDeLancamento(2000);
+        Serie lost = new Serie("Lost", 2000);
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporadas(10);
@@ -55,11 +52,7 @@ public class Principal {
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
 
-        Filme filmePaulo = new Filme();
-        filmePaulo.setDuracaoEmMinutos(200);
-        filmePaulo.setNome("Dogville");
-        filmePaulo.setAnoDeLancamento(2003);
-        filmePaulo.avalia(10);
+
 
         ArrayList<Filme> listaDeFilmes = new ArrayList<>();
         listaDeFilmes.add(filmePaulo);
@@ -67,6 +60,7 @@ public class Principal {
         listaDeFilmes.add(outroFilme);
         System.out.println("Tamanho da lista " + listaDeFilmes.size());
         System.out.println("Primeiro filme " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
         System.out.println("toString do filme " + listaDeFilmes.get(0).toString());
 
 
